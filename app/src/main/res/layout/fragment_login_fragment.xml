@@ -4,6 +4,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.cifu.practica_sallelibrary_sergioc_ianm.fragments.LoginFragment"
     android:orientation="vertical"
+    android:gravity="center_horizontal"
     >
 
     <!-- TODO: Update blank fragment layout -->
@@ -11,39 +12,61 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nombre_usuario"/>
+            android:text="@string/nombre_usuario"
+            android:id="@+id/login_nombre_text"/>
 
         <EditText
             android:layout_width="@dimen/tamaño_editText_login"
             android:layout_height="wrap_content"
+            android:id="@+id/login_nombre_value"
             />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/contraseña"/>
+            android:text="@string/contraseña"
+            android:id="@+id/login_password_text"/>
 
         <EditText
             android:layout_width="@dimen/tamaño_editText_login"
             android:layout_height="wrap_content"
-
+            android:id="@+id/login_password_value"
             />
     </LinearLayout>
 
-    <Button
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/login"/>
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/registrar"
+            android:id="@+id/login_register_button"
+            />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login"
+            android:id="@+id/login_login_button"
+            />
+
+    </LinearLayout>
 
 </LinearLayout>

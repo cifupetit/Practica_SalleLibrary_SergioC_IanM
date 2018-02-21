@@ -15,13 +15,14 @@ import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class LoginFragment extends Fragment {
+public class LoginFragment extends Fragment implements View.OnClickListener {
 
-    private TextView nombreUsuario;
-    private EditText inputNombreU;
-    private TextView contraseñaUsuario;
-    private EditText inputContraseñaU;
+    private TextView nombreUsuarioText;
+    private EditText nombreUsuarioValue;
+    private TextView contraseñaUsuarioText;
+    private EditText contraseñaUsuarioValue;
     private Button login;
+    private Button register;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -34,10 +35,21 @@ public class LoginFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_login_fragment, container, false);
 
-        //nombreUsuario = view.findViewById(id del XML);
-        // y asi con todos antes del return
+        nombreUsuarioText = view.findViewById(R.id.login_nombre_text);
+        nombreUsuarioValue = view.findViewById(R.id.login_nombre_value);
+        contraseñaUsuarioText = view.findViewById(R.id.login_password_text);
+        contraseñaUsuarioValue = view.findViewById(R.id.login_nombre_value);
+        login = view.findViewById(R.id.login_login_button);
+        register = view.findViewById(R.id.login_register_button);
+
+        login.setOnClickListener(this);
+        register.setOnClickListener(this);
 
         return view;
     }
 
+    @Override
+    public void onClick(View view) {
+
+    }
 }
