@@ -1,15 +1,14 @@
 package com.example.cifu.practica_sallelibrary_sergioc_ianm.fragments;
 
-
 import android.os.Bundle;
-import android.support.v4.app.Fragment;
+import android.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.MainActivity;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 
 /**
@@ -17,12 +16,8 @@ import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
  */
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
-    private TextView nombreUsuarioText;
-    private EditText nombreUsuarioValue;
-    private TextView contraseñaUsuarioText;
-    private EditText contraseñaUsuarioValue;
-    private Button login;
-    private Button register;
+    private EditText usuarioValue, contraseñaValue;
+    private Button login,signup;
 
     public LoginFragment() {
         // Required empty public constructor
@@ -33,23 +28,29 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_login_fragment, container, false);
+        View view = inflater.inflate(R.layout.login_fragment, container, false);
 
-        nombreUsuarioText = view.findViewById(R.id.login_nombre_text);
-        nombreUsuarioValue = view.findViewById(R.id.login_nombre_value);
-        contraseñaUsuarioText = view.findViewById(R.id.login_password_text);
-        contraseñaUsuarioValue = view.findViewById(R.id.login_nombre_value);
+        usuarioValue = view.findViewById(R.id.login_usuario_value);
+        contraseñaValue = view.findViewById(R.id.login_password_value);
         login = view.findViewById(R.id.login_login_button);
-        register = view.findViewById(R.id.login_register_button);
+        signup = view.findViewById(R.id.login_signup_button);
 
         login.setOnClickListener(this);
-        register.setOnClickListener(this);
+        signup.setOnClickListener(this);
 
         return view;
     }
 
     @Override
     public void onClick(View view) {
+        if (view.getId() == R.id.login_login_button) {
 
+        }
+
+        if (view.getId() == R.id.login_signup_button) {
+            MainActivity activity = (MainActivity) getActivity();
+            activity.onRegisterSelected();
+        }
     }
+
 }

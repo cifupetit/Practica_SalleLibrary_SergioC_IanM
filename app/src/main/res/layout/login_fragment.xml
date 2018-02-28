@@ -8,7 +8,7 @@
     >
 
     <!-- TODO: Update blank fragment layout -->
-    
+
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -18,13 +18,27 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/nombre_usuario"
-            android:id="@+id/login_nombre_text"/>
+            android:id="@+id/login_title_text"
+            android:text="@string/login_title"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/usuario"
+            android:id="@+id/login_usuario_text"/>
 
         <EditText
             android:layout_width="@dimen/tamaño_editText_login"
             android:layout_height="wrap_content"
-            android:id="@+id/login_nombre_value"
+            android:id="@+id/login_usuario_value"
             />
     </LinearLayout>
 
@@ -56,8 +70,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/registrar"
-            android:id="@+id/login_register_button"
+            android:text="@string/signup"
+            android:id="@+id/login_signup_button"
             />
 
         <Button

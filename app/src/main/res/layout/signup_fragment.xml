@@ -1,0 +1,118 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.cifu.practica_sallelibrary_sergioc_ianm.fragments.SignupFragment"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <!-- TODO: Update blank fragment layout -->
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_title_text"
+            android:text="@string/signup_title"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_usuario_text"
+            android:text="@string/usuario"/>
+
+        <EditText
+            android:layout_width="@dimen/tamaño_editText_login"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_usuario_value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_nombre_text"
+            android:text="@string/nombre"/>
+
+        <EditText
+            android:layout_width="@dimen/tamaño_editText_login"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_nombre_value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_apellido_text"
+            android:text="@string/apellido"/>
+
+        <EditText
+            android:layout_width="@dimen/tamaño_editText_login"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_apellido_value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_password_text"
+            android:text="@string/contraseña"/>
+
+        <EditText
+            android:layout_width="@dimen/tamaño_editText_login"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_password_value"
+            />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="@dimen/margin_standard">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signup_signup_button"
+            android:text="@string/signup"
+            android:layout_margin="@dimen/margin_standard"
+            />
+
+    </LinearLayout>
+
+</LinearLayout>
