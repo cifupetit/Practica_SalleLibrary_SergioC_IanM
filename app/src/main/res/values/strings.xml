@@ -12,4 +12,11 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="login">Log in</string>
     <string name="signup">Sign up</string>
+    <string name="titulo_libro">Titulo del libro</string>
+    <string name="subtitulo_libro">Subtitulo del libro</string>
+    <string name="autores_libro">Autor/es del libro</string>
+    <string name="editorial_libro">Editorial del libro</string>
+    <string name="fecha_libro">00/00/000</string>
+    <string name="precio_libro">00,00€</string>
+    <string name="descripcion_libro">Descripcion del libro posible</string>
 </resources>
