@@ -3,4 +3,5 @@
     <dimen name="tamaño_editText_login">150sp</dimen>
     <dimen name="margin_splash_text">50dp</dimen>
     <dimen name="margin_standard">10dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

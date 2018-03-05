@@ -19,4 +19,14 @@
     <string name="fecha_libro">00/00/000</string>
     <string name="precio_libro">00,00€</string>
     <string name="descripcion_libro">Descripcion del libro posible</string>
+    <string name="title_activity_books_list">BooksListActivity</string>
+    <string name="book_id">id</string>
+    <string name="book_title">title</string>
+    <string name="book_subtitle">subtitle</string>
+    <string name="book_description">description</string>
+    <string name="book_publisher">publisher</string>
+    <string name="book_authors">authors</string>
+    <string name="book_price">list_price</string>
+    <string name="book_image">image</string>
+    <string name="book_date">published_date</string>
 </resources>
