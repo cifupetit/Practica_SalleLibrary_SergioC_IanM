@@ -1,10 +1,10 @@
 package com.example.cifu.practica_sallelibrary_sergioc_ianm.fragments;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.BooksListActivity;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 
 import org.json.JSONException;
@@ -50,16 +51,59 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         try {
-            safeInfo(view);
+            //deletePreferences();
+            if (checkEmpty() && checkUser()) {
+                safeInfo();
+                if (view.getId() == R.id.login_login_button) {
+                    Intent intent = new Intent(this.getActivity(), BooksListActivity.class);
+                    startActivity(intent);
+                }
+            }
+
         } catch (JSONException e) {
-            System.err.println("Error parsing JSONObject!");
+            e.printStackTrace();
+        }
+    }
+
+    private boolean checkUser() throws JSONException {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
+        String user = sharedPreferences.getString(usuarioValue.getText().toString(), "");
+
+        if (!user.equals("")) {
+            Toast.makeText(getActivity().getBaseContext(), "¡Este usuario ya existe!", Toast.LENGTH_LONG).show();
+            return false;
         }
 
+        return true;
+    }
+
+    private boolean checkEmpty() {
+        if (usuarioValue.getText().toString().equals("") || usuarioValue.getText().toString().equals(" ")) {
+            Toast.makeText(getActivity().getBaseContext(), "¡El campo usuario no puede estar vacío!", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (nombreValue.getText().toString().equals("") || nombreValue.getText().toString().equals(" ")) {
+            Toast.makeText(getActivity().getBaseContext(), "¡El campo nombre no puede estar vacío!", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (apellidoValue.getText().toString().equals("") || apellidoValue.getText().toString().equals(" ")) {
+            Toast.makeText(getActivity().getBaseContext(), "¡El campo apellido no puede estar vacío!", Toast.LENGTH_LONG).show();
+            return false;
+        }
+
+        if (contraseñaValue.getText().toString().equals("") || contraseñaValue.getText().toString().equals(" ")) {
+            Toast.makeText(getActivity().getBaseContext(), "¡El campo contraseña no puede estar vacío!", Toast.LENGTH_LONG).show();
+            return false;
+        }
+        return true;
     }
 
     //Hashear contraseña antes de guardarla
 
-    public void safeInfo(View view) throws JSONException {
+    public void safeInfo() throws JSONException {
+
         JSONObject json = new JSONObject();
         json.put("usuario", usuarioValue.getText().toString());
         json.put("nombre", nombreValue.getText().toString());
@@ -71,17 +115,13 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
         editor.putString(usuarioValue.getText().toString(), json.toString());
         editor.apply();
 
-        /*
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
-        SharedPreferences.Editor editor = sharedPreferences.edit();
-        editor.putString("usuario", usuarioValue.getText().toString());
-        editor.putString("nombre", usuarioValue.getText().toString());
-        editor.putString("apellido", usuarioValue.getText().toString());
-        editor.putString("contraseña", usuarioValue.getText().toString());
-        editor.apply();
-        */
+        Toast.makeText(getActivity().getBaseContext(), "¡Usuario creado!", Toast.LENGTH_LONG).show();
 
-        Toast.makeText(getActivity().getBaseContext(), "User saved!", Toast.LENGTH_LONG).show();
+    }
+
+    public void deletePreferences () {
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
+        sharedPreferences.edit().clear().apply();
     }
 
 

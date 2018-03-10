@@ -13,6 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -52,7 +53,7 @@ public class BookListAdapter extends BaseAdapter {
         //set custom layout
         if (convertView == null) {convertView = this.inflater.inflate(this.bookItemLayout, null);}
         //get views from custom layout
-        //ImageView imgLibro = (ImageView) convertView.findViewById(R.id.imagen_book_list);
+        //ImageView imgLibro = (ImageView) convertView.findViewById(R.id.imagen_book_list); se hace uso de Glide
         TextView booTitle = (TextView) convertView.findViewById(R.id.titulo_book_list);
         TextView bookSubtitle = (TextView) convertView.findViewById(R.id.subtitulo_book_list);
         TextView bookAuthors = (TextView) convertView.findViewById(R.id.autores_book_list);
@@ -65,7 +66,7 @@ public class BookListAdapter extends BaseAdapter {
         Glide.with(this.activity).load(data.get(position).getImg()).into((ImageView) convertView.findViewById(R.id.imagen_book_list));
         booTitle.setText(data.get(position).getTitle());
         bookSubtitle.setText(data.get(position).getSubtitle());
-        bookAuthors.setText(data.get(position).getAuthors().toString());
+        bookAuthors.setText(Arrays.toString(data.get(position).getAuthors()));
         bookPublisher.setText(data.get(position).getPublisher());
         bookDate.setText(data.get(position).getPublishDate());
         bookPrice.setText(String.valueOf(data.get(position).getPrice()));

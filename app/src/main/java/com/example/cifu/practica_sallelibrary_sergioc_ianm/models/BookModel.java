@@ -105,7 +105,7 @@ public class BookModel implements Parcelable {
         dest.writeDouble(this.price);
     }
 
-    public static final Parcelable.Creator<BookModel> CREATOR = new Parcelable.Creator<BookModel>() {
+    public static final Creator<BookModel> CREATOR = new Creator<BookModel>() {
         @Override
         public BookModel createFromParcel(Parcel source) {
             return new BookModel(source);
@@ -117,7 +117,7 @@ public class BookModel implements Parcelable {
         }
     };
 
-    private BookModel (Parcel source) {
+    private BookModel(Parcel source) {
         this.img = source.readString();
         this.title = source.readString();
         this.subtitle = source.readString();
