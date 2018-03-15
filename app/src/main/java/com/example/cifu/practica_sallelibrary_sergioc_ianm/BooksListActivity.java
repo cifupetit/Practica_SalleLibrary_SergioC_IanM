@@ -36,7 +36,7 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
         bookListAdapter = new BookListAdapter(this, data, R.layout.book_list_item);
         listView.setAdapter(bookListAdapter);
 
-        searchBooks("harry");
+        searchBooks("viaje");
 
         listView.setOnItemClickListener(this);
     }

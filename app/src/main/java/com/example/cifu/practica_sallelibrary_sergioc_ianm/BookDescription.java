@@ -8,8 +8,6 @@ import com.bumptech.glide.Glide;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
 import com.example.custombookdescription.CustomBookDescription;
 
-import java.util.Arrays;
-
 public class BookDescription extends AppCompatActivity {
 
     @Override
@@ -21,11 +19,16 @@ public class BookDescription extends AppCompatActivity {
 
         CustomBookDescription bookDescription = findViewById(R.id.book_description);
         Glide.with(this).load(book.getImg()).into((ImageView) this.findViewById(R.id.imagen_desc));
-        bookDescription.setImg(book.getImg());
         bookDescription.setTitulo(book.getTitle());
         bookDescription.setSubtitulo(book.getSubtitle());
         bookDescription.setEditorial(book.getPublisher());
-        bookDescription.setAutores(Arrays.toString(book.getAuthors()));
+        /*StringBuilder builder = new StringBuilder();
+        for(String s : book.getAuthors()) {
+            builder.append(s);
+        }
+        String str = builder.toString();*/
+
+        bookDescription.setAutores(book.getStringAuthors());
         bookDescription.setFecha(book.getPublishDate());
         bookDescription.setPrecio(String.valueOf(book.getPrice()));
         bookDescription.setDescripcion(book.getDescription());

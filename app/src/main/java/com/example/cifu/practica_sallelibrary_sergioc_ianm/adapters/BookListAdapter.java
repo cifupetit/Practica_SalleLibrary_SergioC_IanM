@@ -53,7 +53,6 @@ public class BookListAdapter extends BaseAdapter {
         //set custom layout
         if (convertView == null) {convertView = this.inflater.inflate(this.bookItemLayout, null);}
         //get views from custom layout
-        //ImageView imgLibro = (ImageView) convertView.findViewById(R.id.imagen_book_list); se hace uso de Glide
         TextView booTitle = (TextView) convertView.findViewById(R.id.titulo_book_list);
         TextView bookSubtitle = (TextView) convertView.findViewById(R.id.subtitulo_book_list);
         TextView bookAuthors = (TextView) convertView.findViewById(R.id.autores_book_list);

@@ -3,6 +3,7 @@ package com.example.custombookdescription;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
+import android.text.method.ScrollingMovementMethod;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.widget.ImageView;
@@ -53,6 +54,8 @@ public class CustomBookDescription extends LinearLayout {
         float tamañoTexto = a.getDimension(R.styleable.CustomBookDescription_tamano_texto, 16);
         if (tamañoTexto > 0) {setTamañoTexto(tamañoTexto);}
 
+        descripcion.setMovementMethod(new ScrollingMovementMethod());
+
         a.recycle();
     }
 
@@ -60,10 +63,6 @@ public class CustomBookDescription extends LinearLayout {
         this.img.setImageDrawable(img);
         invalidate();
         requestLayout();
-    }
-
-    public void setImg(String img) {
-        //Glide.with(this).load(img).into(this.img);
     }
 
     public void setTamañoTexto(float tamañoTexto) {

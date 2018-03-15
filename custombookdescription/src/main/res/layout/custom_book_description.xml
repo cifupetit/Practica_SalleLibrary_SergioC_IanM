@@ -13,7 +13,7 @@
             android:layout_width="200sp"
             android:layout_height="250sp"
             android:id="@+id/imagen_desc"
-            android:background="@android:color/holo_green_light"
+            android:background="@color/blue_dark"
             android:contentDescription="@string/app_name"/>
 
         <LinearLayout
@@ -68,9 +68,7 @@
                 android:layout_height="match_parent"
                 android:text="@string/descripcion_desc"
                 android:id="@+id/descripcion_desc"
-                android:scrollHorizontally="true"
-                android:isScrollContainer="true"
-                android:scrollbarStyle="insideOverlay"/>
+                android:scrollbars="vertical"/>
     </LinearLayout>
 
 </LinearLayout>

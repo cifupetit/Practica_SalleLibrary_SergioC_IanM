@@ -3,6 +3,8 @@ package com.example.cifu.practica_sallelibrary_sergioc_ianm.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+import java.util.Arrays;
+
 /**
  * Created by cifu on 03/03/2018.
  */
@@ -66,6 +68,10 @@ public class BookModel implements Parcelable {
 
     public String[] getAuthors() {
         return authors;
+    }
+
+    public String getStringAuthors() {
+        return Arrays.toString(authors);
     }
 
     public void setAuthors(String[] authors) {
