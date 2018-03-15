@@ -11,6 +11,7 @@ import com.google.api.services.books.model.Volume;
 import com.google.common.primitives.Ints;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -106,7 +107,8 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
             Volume.SaleInfo saleInfo = volumes.get(i).getSaleInfo();
 
             String title = "", subtitle = "", description = "", publisher = "", publishDate = "";
-            String[] authors = new String[volumeInfo.getAuthors().size()];
+            //String[] authors = new String[volumeInfo.getAuthors().size()];
+            String authors = "";
             Double price = 0.0;
 
             if (volumeInfo != null) {
@@ -124,7 +126,8 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
                     publisher = volumeInfo.getPublisher();
                 }
                 if (volumeInfo.getAuthors() != null) {
-                    authors = volumeInfo.getAuthors().toArray(new String[volumeInfo.getAuthors().size()]);
+                    //authors = volumeInfo.getAuthors().toArray(new String[volumeInfo.getAuthors().size()]);
+                    authors = Arrays.toString(volumeInfo.getAuthors().toArray());
                 }
                 if (volumeInfo.getPublishedDate() != null) {
                     publishDate = volumeInfo.getPublishedDate();

@@ -13,7 +13,6 @@ import com.bumptech.glide.Glide;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
 
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -65,7 +64,7 @@ public class BookListAdapter extends BaseAdapter {
         Glide.with(this.activity).load(data.get(position).getImg()).into((ImageView) convertView.findViewById(R.id.imagen_book_list));
         booTitle.setText(data.get(position).getTitle());
         bookSubtitle.setText(data.get(position).getSubtitle());
-        bookAuthors.setText(Arrays.toString(data.get(position).getAuthors()));
+        bookAuthors.setText(data.get(position).getAuthors());
         bookPublisher.setText(data.get(position).getPublisher());
         bookDate.setText(data.get(position).getPublishDate());
         bookPrice.setText(String.valueOf(data.get(position).getPrice()));

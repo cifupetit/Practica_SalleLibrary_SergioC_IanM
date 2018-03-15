@@ -3,19 +3,17 @@ package com.example.cifu.practica_sallelibrary_sergioc_ianm.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-import java.util.Arrays;
-
 /**
  * Created by cifu on 03/03/2018.
  */
 
 public class BookModel implements Parcelable {
-    private String img, title , subtitle, description, publisher;
-    private String[] authors;
+    private String img, title , subtitle, description, publisher, authors;
+    //private String[] authors;
     private String publishDate;
     private double price;
 
-    public BookModel(String img, String title, String subtitle, String description, String publisher, String[] authors, String publishDate, double price) {
+    public BookModel(String img, String title, String subtitle, String description, String publisher, String authors, String publishDate, double price) {
         this.img = img;
         this.title = title;
         this.subtitle = subtitle;
@@ -66,7 +64,7 @@ public class BookModel implements Parcelable {
         this.publisher = publisher;
     }
 
-    public String[] getAuthors() {
+    /*public String[] getAuthors() {
         return authors;
     }
 
@@ -75,6 +73,14 @@ public class BookModel implements Parcelable {
     }
 
     public void setAuthors(String[] authors) {
+        this.authors = authors;
+    }*/
+
+    public String getAuthors() {
+        return authors;
+    }
+
+    public void setAuthors(String authors) {
         this.authors = authors;
     }
 
@@ -106,7 +112,7 @@ public class BookModel implements Parcelable {
         dest.writeString(this.subtitle);
         dest.writeString(this.description);
         dest.writeString(this.publisher);
-        dest.writeString(this.authors.toString());
+        dest.writeString(this.authors);
         dest.writeString(this.publishDate);
         dest.writeDouble(this.price);
     }
@@ -129,7 +135,7 @@ public class BookModel implements Parcelable {
         this.subtitle = source.readString();
         this.description = source.readString();
         this.publisher = source.readString();
-        this.authors = source.readString().split(",");
+        this.authors = source.readString();
         this.publishDate = source.readString();
         this.price = source.readDouble();
     }
