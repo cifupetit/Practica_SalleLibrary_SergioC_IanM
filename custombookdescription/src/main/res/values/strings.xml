@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">CustomBookDescription</string>
+    <string name="titulo_desc">Titulo del libro</string>
+    <string name="subtitulo_desc">Subtitulo del libro</string>
+    <string name="autores_desc">Autores del libro</string>
+    <string name="editorial_desc">Editorial del libro</string>
+    <string name="fecha_desc">00/00/0000</string>
+    <string name="precio_desc">Precio del libro</string>
+    <string name="descripcion_desc">Descripcion del libro</string>
+</resources>

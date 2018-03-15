@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="CustomBookDescription">
+        <attr name="img" format="integer"/>
+        <attr name="tamano_texto" format="dimension"/>
+    </declare-styleable>
+</resources>

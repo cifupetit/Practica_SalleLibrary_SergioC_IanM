@@ -100,7 +100,7 @@ public class BookModel implements Parcelable {
         dest.writeString(this.subtitle);
         dest.writeString(this.description);
         dest.writeString(this.publisher);
-        dest.writeStringArray(this.authors);
+        dest.writeString(this.authors.toString());
         dest.writeString(this.publishDate);
         dest.writeDouble(this.price);
     }
@@ -123,7 +123,7 @@ public class BookModel implements Parcelable {
         this.subtitle = source.readString();
         this.description = source.readString();
         this.publisher = source.readString();
-        source.readStringArray(this.authors);
+        this.authors = source.readString().split(",");
         this.publishDate = source.readString();
         this.price = source.readDouble();
     }

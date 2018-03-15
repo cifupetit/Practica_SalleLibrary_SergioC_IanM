@@ -1,11 +1,11 @@
 package com.example.cifu.practica_sallelibrary_sergioc_ianm;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.adapters.BookListAdapter;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
@@ -56,6 +56,15 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Toast.makeText(getApplicationContext(), "Prueba libro " + position, Toast.LENGTH_LONG).show();
+        //Toast.makeText(getApplicationContext(), "Prueba libro " + bookListAdapter.getItem(position).getTitle(), Toast.LENGTH_LONG).show();
+        BookModel book = bookListAdapter.getItem(position);
+
+        Intent intentDesc = new Intent(this, BookDescription.class);
+
+        Bundle bookData = new Bundle();
+        bookData.putParcelable("book", book);
+
+        intentDesc.putExtras(bookData);
+        startActivity(intentDesc);
     }
 }
