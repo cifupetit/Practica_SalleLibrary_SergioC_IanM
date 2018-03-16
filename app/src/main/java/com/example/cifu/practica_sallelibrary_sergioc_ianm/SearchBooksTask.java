@@ -69,7 +69,7 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
     }
 
     public void parseBooksData( List<Volume> volumes ) {
-        //data = new ArrayList<>(volumes.size());
+        data.clear();
         for (int i = 0; i < volumes.size(); i++) {
             Volume.VolumeInfo.ImageLinks imageLinks = volumes.get(i).getVolumeInfo().getImageLinks();
 
@@ -96,11 +96,11 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
                 }
 
                 imageLink = imageLink.replace("edge=curl", "");
-                System.out.println(imageLink);
+                //System.out.println(imageLink);
 
                 image = imageLink;
             } else {
-                System.err.println("No images ??");
+                System.err.println("No images");
             }
 
             Volume.VolumeInfo volumeInfo = volumes.get(i).getVolumeInfo();
@@ -147,6 +147,7 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
             }
             BookModel book = new BookModel(image, title, subtitle, description, publisher, authors, publishDate, price);
             data.add(book);
+            //data.set(i, book);
         }
     }
 }
