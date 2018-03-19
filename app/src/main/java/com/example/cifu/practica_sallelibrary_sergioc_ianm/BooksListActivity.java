@@ -110,7 +110,7 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                searchBooks(s);
+                //searchBooks(s);
                 //bookListAdapter.notifyDataSetChanged();
                 return false;
             }
@@ -118,7 +118,7 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
             @Override
             public boolean onQueryTextChange(String s) {
                 //bookListAdapter.getFilter().filter(s);
-                //searchBooks(s);
+                searchBooks(s);
                 return false;
             }
         });

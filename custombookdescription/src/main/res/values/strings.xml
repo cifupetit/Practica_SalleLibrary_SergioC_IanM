@@ -7,4 +7,5 @@
     <string name="fecha_desc">00/00/0000</string>
     <string name="precio_desc">Precio del libro</string>
     <string name="descripcion_desc">Descripcion del libro</string>
+    <string name="fav_button">Favoritos</string>
 </resources>

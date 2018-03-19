@@ -15,8 +15,12 @@ import android.widget.Toast;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.BooksListActivity;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -51,7 +55,7 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View view) {
         try {
-            //deletePreferences();
+            deletePreferences();
             if (checkEmpty() && checkUser()) {
                 safeInfo();
                 if (view.getId() == R.id.login_login_button) {
@@ -109,6 +113,9 @@ public class SignupFragment extends Fragment implements View.OnClickListener {
         json.put("nombre", nombreValue.getText().toString());
         json.put("apellido", apellidoValue.getText().toString());
         json.put("contraseña", contraseñaValue.getText().toString());
+
+        JSONArray favArray = new JSONArray();
+        json.put("favoritos", favArray);
 
         SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPreferences.edit();

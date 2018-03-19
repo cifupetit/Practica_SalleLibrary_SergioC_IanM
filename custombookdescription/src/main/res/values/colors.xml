@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="blue_dark">#303F9F</color>
+    <color name="not_fav">#FF0000</color>
+    <color name="fav">#00FF00</color>
 </resources>
