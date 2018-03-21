@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.BooksListActivity;
@@ -57,13 +56,13 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
             SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
             String user = sharedPreferences.getString(usuarioValue.getText().toString(), "");
             JSONObject json = new JSONObject(user);
-            String fav = json.getString("favoritos");
+            //String fav = json.getString("favoritos");
             if (view.getId() == R.id.login_signup_button) {
                 MainActivity activity = (MainActivity) getActivity();
                 activity.onRegisterSelected();
             } else if (checkEmpty() && checkUser()) {
                 Toast.makeText(getActivity().getBaseContext(), "¡Datos correctos!", Toast.LENGTH_LONG).show();
-                Toast.makeText(getActivity().getBaseContext(), fav, Toast.LENGTH_LONG).show();
+                //Toast.makeText(getActivity().getBaseContext(), fav, Toast.LENGTH_LONG).show();
                 if (view.getId() == R.id.login_login_button) {
                     Intent intent = new Intent(this.getActivity(), BooksListActivity.class);
                     startActivity(intent);
