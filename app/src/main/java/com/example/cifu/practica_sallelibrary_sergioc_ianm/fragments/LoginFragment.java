@@ -15,9 +15,10 @@ import android.widget.Toast;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.BooksListActivity;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.MainActivity;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.UserModel;
+import com.google.gson.Gson;
 
 import org.json.JSONException;
-import org.json.JSONObject;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,12 +26,11 @@ import org.json.JSONObject;
 public class LoginFragment extends Fragment implements View.OnClickListener {
 
     private EditText usuarioValue, contraseñaValue;
-    private Button login,signup;
+    private Button login, signup;
 
     public LoginFragment() {
         // Required empty public constructor
     }
-
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -49,24 +49,25 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
         return view;
     }
 
-
     @Override
     public void onClick(View view) {
         try {
-            SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
-            String user = sharedPreferences.getString(usuarioValue.getText().toString(), "");
-            JSONObject json = new JSONObject(user);
-            //String fav = json.getString("favoritos");
+
             if (view.getId() == R.id.login_signup_button) {
                 MainActivity activity = (MainActivity) getActivity();
                 activity.onRegisterSelected();
+
             } else if (checkEmpty() && checkUser()) {
-                Toast.makeText(getActivity().getBaseContext(), "¡Datos correctos!", Toast.LENGTH_LONG).show();
-                //Toast.makeText(getActivity().getBaseContext(), fav, Toast.LENGTH_LONG).show();
+
+                Toast.makeText(getActivity().getBaseContext(), getResources().getString(R.string.datos_ok
+                ), Toast.LENGTH_LONG).show();
+
                 if (view.getId() == R.id.login_login_button) {
                     Intent intent = new Intent(this.getActivity(), BooksListActivity.class);
+                    intent.putExtra(getResources().getString(R.string.usuario_intent), usuarioValue.getText().toString());
                     startActivity(intent);
                 }
+
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -74,33 +75,40 @@ public class LoginFragment extends Fragment implements View.OnClickListener {
     }
 
     private boolean checkUser() throws JSONException {
-        SharedPreferences sharedPreferences = getActivity().getSharedPreferences("usersInfo", Context.MODE_PRIVATE);
-        String user = sharedPreferences.getString(usuarioValue.getText().toString(), "");
 
-        if (user.equals("")) {
-            Toast.makeText(getActivity().getBaseContext(), "¡No existe este usuario!", Toast.LENGTH_LONG).show();
+        SharedPreferences sharedPreferences = getActivity().getSharedPreferences(getResources().getString(R.string.shared_name), Context.MODE_PRIVATE);
+        String json = sharedPreferences.getString(usuarioValue.getText().toString(),  getResources().getString(R.string.vacio));
+
+        if (json.equals(getResources().getString(R.string.vacio))) {
+            Toast.makeText(getActivity().getBaseContext(), getResources().getString(R.string.usuario_no_existe), Toast.LENGTH_LONG).show();
             return false;
+
         } else {
-            JSONObject json = new JSONObject(user);
-            String contraseña = json.getString("contraseña");
+            Gson gson = new Gson();
+            UserModel user = gson.fromJson(json, UserModel.class);
+            String contraseña = user.getContraseña();
+
             if (!(contraseñaValue.getText().toString().equals(contraseña))) {
-                Toast.makeText(getActivity().getBaseContext(), "¡Contraseña incorrecta!", Toast.LENGTH_LONG).show();
+                Toast.makeText(getActivity().getBaseContext(), getResources().getString(R.string.contraseña_incorrecta), Toast.LENGTH_LONG).show();
                 return false;
             }
+
         }
         return true;
     }
 
     private boolean checkEmpty() {
-        if (usuarioValue.getText().toString().equals("") || usuarioValue.getText().toString().equals(" ")) {
-            Toast.makeText(getActivity().getBaseContext(), "¡El campo usuario no puede estar vacío!", Toast.LENGTH_LONG).show();
+
+        if (usuarioValue.getText().toString().equals(getResources().getString(R.string.vacio)) || usuarioValue.getText().toString().equals(getResources().getString(R.string.blanco))) {
+            Toast.makeText(getActivity().getBaseContext(),  getResources().getString(R.string.usuario_vacio), Toast.LENGTH_LONG).show();
             return false;
         }
 
-        if (contraseñaValue.getText().toString().equals("") || contraseñaValue.getText().toString().equals(" ")) {
-            Toast.makeText(getActivity().getBaseContext(), "¡El campo contraseña no puede estar vacío!", Toast.LENGTH_LONG).show();
+        if (contraseñaValue.getText().toString().equals(getResources().getString(R.string.vacio)) || contraseñaValue.getText().toString().equals(getResources().getString(R.string.blanco))) {
+            Toast.makeText(getActivity().getBaseContext(), getResources().getString(R.string.contraseña_vacia), Toast.LENGTH_LONG).show();
             return false;
         }
+
         return true;
     }
 

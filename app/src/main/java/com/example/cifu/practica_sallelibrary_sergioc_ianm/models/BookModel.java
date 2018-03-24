@@ -139,4 +139,9 @@ public class BookModel implements Parcelable {
         this.publishDate = source.readString();
         this.price = source.readDouble();
     }
+
+    public boolean compareTo( BookModel bookModel) {
+        return this.getTitle().equals(bookModel.getTitle());
+    }
+
 }

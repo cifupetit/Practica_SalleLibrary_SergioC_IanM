@@ -30,4 +30,21 @@
     <string name="book_image">image</string>
     <string name="book_date">published_date</string>
     <string name="search_action">search_action</string>
+    <string name="datos_ok">¡Datos correctos!</string>
+    <string name="usuario_intent">usuario</string>
+    <string name="vacio"></string>
+    <string name="blanco"> </string>
+    <string name="shared_name">usersInfo</string>
+    <string name="usuario_no_existe">¡No existe este usuario!</string>
+    <string name="usuario_ya_existe">¡Este usuario ya existe!</string>
+    <string name="contraseña_incorrecta">¡Contraseña incorrecta!</string>
+    <string name="usuario_vacio">¡El campo usuario no puede estar vacío!</string>
+    <string name="contraseña_vacia">¡El campo contraseña no puede estar vacío!</string>
+    <string name="nombre_vacio">¡El campo nombre no puede estar vacío!</string>
+    <string name="apellido_vacio">¡El campo apellido no puede estar vacío!</string>
+    <string name="usuario_creado">¡Usuario creado!</string>
+    <string name="libro_añadido">¡Libro añadido a favoritos!</string>
+    <string name="libro_quitado">¡Libro quitado de favoritos!</string>
+    <string name="book">book</string>
+
 </resources>

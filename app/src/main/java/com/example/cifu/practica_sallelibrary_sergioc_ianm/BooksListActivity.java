@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.adapters.BookListAdapter;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
@@ -71,9 +72,11 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
         Intent intentDesc = new Intent(this, BookDescription.class);
 
         Bundle bookData = new Bundle();
-        bookData.putParcelable("book", book);
+        bookData.putParcelable(getResources().getString(R.string.book), book);
 
         intentDesc.putExtras(bookData);
+        intentDesc.putExtra(getResources().getString(R.string.usuario_intent), this.getIntent().getExtras().getString(getResources().getString(R.string.usuario_intent)));
+
         startActivity(intentDesc);
     }
 
