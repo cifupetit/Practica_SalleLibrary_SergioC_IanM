@@ -21,6 +21,7 @@
         android:textColor="@color/blanco"
         android:layout_margin="@dimen/margin_splash_text"
         android:layout_centerHorizontal="true"
+        android:textSize="@dimen/text_size_splash_title"
         />
 
 </RelativeLayout>

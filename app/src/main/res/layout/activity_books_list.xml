@@ -19,5 +19,5 @@
         android:layout_height="match_parent"
         android:id="@+id/books_list_view"
         android:divider="@color/colorPrimary"
-        android:dividerHeight="2dp"/>
+        android:dividerHeight="@dimen/list_divider_height"/>
 </LinearLayout>

@@ -4,4 +4,10 @@
     <dimen name="margin_splash_text">50dp</dimen>
     <dimen name="margin_standard">10dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="list_divider_height">2dp</dimen>
+    <dimen name="image_item_width">100sp</dimen>
+    <dimen name="image_item_height">150sp</dimen>
+    <dimen name="start_margin_data_item">10dp</dimen>
+    <dimen name="padding_item">10dp</dimen>
+    <dimen name="text_size_splash_title">22sp</dimen>
 </resources>

@@ -1,37 +1,38 @@
 package com.example.cifu.practica_sallelibrary_sergioc_ianm;
 
 import android.app.SearchManager;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.Toast;
 
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.adapters.BookListAdapter;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
-import com.google.api.services.books.model.Volume;
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.UserModel;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class BooksListActivity extends AppCompatActivity implements AdapterView.OnItemClickListener{
 
-    private boolean searching;
-
     private SearchBooksTask searchTask;
 
-    private List<Volume> volumeList = new ArrayList<>();
-    //private String latestQuery;
     private List<BookModel> data = new ArrayList<>();
-
     private BookListAdapter bookListAdapter;
+
+    private String usuario;
+    private SharedPreferences sharedPreferences;
+    private UserModel user;
+    private Gson gson;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +48,12 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
         listView.setAdapter(bookListAdapter);
 
         searchBooks("A");
+
+        usuario = this.getIntent().getExtras().getString(getResources().getString(R.string.usuario_intent));
+        sharedPreferences = this.getSharedPreferences(getResources().getString(R.string.shared_name), Context.MODE_PRIVATE);
+        String json = sharedPreferences.getString(usuario, getResources().getString(R.string.vacio));
+        gson = new Gson();
+        user = gson.fromJson(json, UserModel.class);
 
         listView.setOnItemClickListener(this);
     }
@@ -84,16 +91,23 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            /*case R.id.add_action:
-                //Toast.makeText(this, "add", Toast.LENGTH_SHORT).show();
-                dataModel.add(generateRandomString());
-                adapter.notifyDataSetChanged();
-                return true;*/
+            case R.id.fav_action:
+                //Toast.makeText(this, "fav", Toast.LENGTH_SHORT).show();
+                usuario = this.getIntent().getExtras().getString(getResources().getString(R.string.usuario_intent));
+                sharedPreferences = this.getSharedPreferences(getResources().getString(R.string.shared_name), Context.MODE_PRIVATE);
+                String json = sharedPreferences.getString(usuario, getResources().getString(R.string.vacio));
+                gson = new Gson();
+                user = gson.fromJson(json, UserModel.class);
+
+                Intent intent = new Intent(this, FavBookListActivity.class);
+                intent.putParcelableArrayListExtra(getResources().getString(R.string.favoritos), user.getFavoritos());
+                startActivity(intent);
+                return true;
 
             case R.id.search_action:
                 //Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
                 String query = getIntent().getStringExtra(SearchManager.QUERY);
-                Log.e("log", query);
+                //Log.e("log", query);
                 return true;
 
             default:
@@ -113,14 +127,12 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String s) {
-                //searchBooks(s);
-                //bookListAdapter.notifyDataSetChanged();
+                searchBooks(s);
                 return false;
             }
 
             @Override
             public boolean onQueryTextChange(String s) {
-                //bookListAdapter.getFilter().filter(s);
                 searchBooks(s);
                 return false;
             }

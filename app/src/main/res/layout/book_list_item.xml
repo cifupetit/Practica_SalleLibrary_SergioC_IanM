@@ -2,11 +2,11 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="horizontal" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp">
+    android:padding="@dimen/padding_item">
 
     <ImageView
-        android:layout_width="100sp"
-        android:layout_height="150sp"
+        android:layout_width="@dimen/image_item_width"
+        android:layout_height="@dimen/image_item_height"
         android:id="@+id/imagen_book_list"
         android:background="@color/colorPrimary"/>
 
@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:layout_marginStart="10dp">
+        android:layout_marginStart="@dimen/start_margin_data_item">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

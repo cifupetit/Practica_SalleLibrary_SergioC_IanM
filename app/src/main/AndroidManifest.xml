@@ -19,9 +19,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".BooksListActivity"
-            android:theme="@style/AppTheme.NoActionBar"/>
-        <activity android:name=".BookDescription"/>
+        <activity
+            android:name=".BooksListActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".BookDescription" />
+        <activity android:name=".FavBookListActivity" />
+        <activity android:name=".FavBookDescription"></activity>
     </application>
 
 </manifest>

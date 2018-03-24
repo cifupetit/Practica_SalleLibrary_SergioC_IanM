@@ -9,7 +9,6 @@ import android.os.Parcelable;
 
 public class BookModel implements Parcelable {
     private String img, title , subtitle, description, publisher, authors;
-    //private String[] authors;
     private String publishDate;
     private double price;
 
@@ -63,18 +62,6 @@ public class BookModel implements Parcelable {
     public void setPublisher(String publisher) {
         this.publisher = publisher;
     }
-
-    /*public String[] getAuthors() {
-        return authors;
-    }
-
-    public String getStringAuthors() {
-        return Arrays.toString(authors);
-    }
-
-    public void setAuthors(String[] authors) {
-        this.authors = authors;
-    }*/
 
     public String getAuthors() {
         return authors;

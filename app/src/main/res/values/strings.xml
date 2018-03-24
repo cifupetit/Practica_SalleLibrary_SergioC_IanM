@@ -46,5 +46,7 @@
     <string name="libro_añadido">¡Libro añadido a favoritos!</string>
     <string name="libro_quitado">¡Libro quitado de favoritos!</string>
     <string name="book">book</string>
+    <string name="fav_action">fav_action</string>
+    <string name="favoritos">favoritos</string>
 
 </resources>

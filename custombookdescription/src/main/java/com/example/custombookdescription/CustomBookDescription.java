@@ -127,4 +127,14 @@ public class CustomBookDescription extends LinearLayout {
     public Button getFavoritos() {
         return favoritos;
     }
+
+    public void disableFavButton() {
+        favoritos.setEnabled(false);
+        favoritos.setVisibility(INVISIBLE);
+    }
+
+    public void enableFavButton() {
+        favoritos.setEnabled(true);
+        favoritos.setVisibility(VISIBLE);
+    }
 }

@@ -64,11 +64,11 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
         this.data = data;
     }
 
-    public void setBookAdapter(BookListAdapter bookAdapter) {
+    void setBookAdapter(BookListAdapter bookAdapter) {
         this.bookAdapter = bookAdapter;
     }
 
-    public void parseBooksData( List<Volume> volumes ) {
+    private void parseBooksData( List<Volume> volumes ) {
         data.clear();
         for (int i = 0; i < volumes.size(); i++) {
             Volume.VolumeInfo.ImageLinks imageLinks = volumes.get(i).getVolumeInfo().getImageLinks();
@@ -107,12 +107,10 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
             Volume.SaleInfo saleInfo = volumes.get(i).getSaleInfo();
 
             String title = "", subtitle = "", description = "", publisher = "", publishDate = "";
-            //String[] authors = new String[volumeInfo.getAuthors().size()];
             String authors = "";
             Double price = 0.0;
 
             if (volumeInfo != null) {
-                //Volume.VolumeInfo.ImageLinks imageLinks = volumeInfo.getImageLinks();
                 if (volumeInfo.getTitle() != null) {
                     title = volumeInfo.getTitle();
                 }
@@ -126,8 +124,8 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
                     publisher = volumeInfo.getPublisher();
                 }
                 if (volumeInfo.getAuthors() != null) {
-                    //authors = volumeInfo.getAuthors().toArray(new String[volumeInfo.getAuthors().size()]);
                     authors = Arrays.toString(volumeInfo.getAuthors().toArray());
+                    authors = authors.substring(1, authors.length() - 1);
                 }
                 if (volumeInfo.getPublishedDate() != null) {
                     publishDate = volumeInfo.getPublishedDate();
@@ -147,7 +145,6 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
             }
             BookModel book = new BookModel(image, title, subtitle, description, publisher, authors, publishDate, price);
             data.add(book);
-            //data.set(i, book);
         }
     }
 }
