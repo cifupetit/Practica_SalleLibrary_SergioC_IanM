@@ -64,7 +64,7 @@ public class SearchBooksTask extends AsyncTask<String, Void, List<Volume>> {
         this.data = data;
     }
 
-    void setBookAdapter(BookListAdapter bookAdapter) {
+    public void setBookAdapter(BookListAdapter bookAdapter) {
         this.bookAdapter = bookAdapter;
     }
 

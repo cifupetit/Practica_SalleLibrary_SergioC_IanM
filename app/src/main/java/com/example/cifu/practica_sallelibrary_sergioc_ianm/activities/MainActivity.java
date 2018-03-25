@@ -1,9 +1,10 @@
-package com.example.cifu.practica_sallelibrary_sergioc_ianm;
+package com.example.cifu.practica_sallelibrary_sergioc_ianm.activities;
 
 import android.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.fragments.LoginFragment;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.fragments.SignupFragment;
 

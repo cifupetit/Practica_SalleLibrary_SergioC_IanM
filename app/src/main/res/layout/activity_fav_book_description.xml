@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.cifu.practica_sallelibrary_sergioc_ianm.FavBookListActivity">
+    tools:context="com.example.cifu.practica_sallelibrary_sergioc_ianm.activities.FavBookListActivity">
 
     <com.example.custombookdescription.CustomBookDescription
         android:layout_width="match_parent"

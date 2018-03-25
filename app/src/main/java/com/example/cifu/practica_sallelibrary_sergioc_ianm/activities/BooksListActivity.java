@@ -1,4 +1,4 @@
-package com.example.cifu.practica_sallelibrary_sergioc_ianm;
+package com.example.cifu.practica_sallelibrary_sergioc_ianm.activities;
 
 import android.app.SearchManager;
 import android.content.Context;
@@ -14,6 +14,8 @@ import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.SearchBooksTask;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.adapters.BookListAdapter;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.UserModel;
@@ -59,9 +61,6 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
     }
 
     public void searchBooks(String query) {
-        /*if (query.equalsIgnoreCase(latestQuery)) {
-            return;
-        }*/
         if (searchTask != null) {
             searchTask.cancel(true);
         }
@@ -73,7 +72,6 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        //Toast.makeText(getApplicationContext(), "Prueba libro " + bookListAdapter.getItem(position).getTitle(), Toast.LENGTH_LONG).show();
         BookModel book = bookListAdapter.getItem(position);
 
         Intent intentDesc = new Intent(this, BookDescription.class);
@@ -92,7 +90,6 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.fav_action:
-                //Toast.makeText(this, "fav", Toast.LENGTH_SHORT).show();
                 usuario = this.getIntent().getExtras().getString(getResources().getString(R.string.usuario_intent));
                 sharedPreferences = this.getSharedPreferences(getResources().getString(R.string.shared_name), Context.MODE_PRIVATE);
                 String json = sharedPreferences.getString(usuario, getResources().getString(R.string.vacio));
@@ -105,9 +102,7 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
                 return true;
 
             case R.id.search_action:
-                //Toast.makeText(this, "search", Toast.LENGTH_SHORT).show();
                 String query = getIntent().getStringExtra(SearchManager.QUERY);
-                //Log.e("log", query);
                 return true;
 
             default:
@@ -133,7 +128,7 @@ public class BooksListActivity extends AppCompatActivity implements AdapterView.
 
             @Override
             public boolean onQueryTextChange(String s) {
-                searchBooks(s);
+                //searchBooks(s);
                 return false;
             }
         });

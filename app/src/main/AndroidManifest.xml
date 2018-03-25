@@ -18,13 +18,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainActivity" />
+        <activity android:name=".activities.MainActivity" />
         <activity
-            android:name=".BooksListActivity"
+            android:name=".activities.BooksListActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".BookDescription" />
-        <activity android:name=".FavBookListActivity" />
-        <activity android:name=".FavBookDescription"></activity>
+        <activity android:name=".activities.BookDescription" />
+        <activity android:name=".activities.FavBookListActivity" />
+        <activity android:name=".activities.FavBookDescription"></activity>
     </application>
 
 </manifest>

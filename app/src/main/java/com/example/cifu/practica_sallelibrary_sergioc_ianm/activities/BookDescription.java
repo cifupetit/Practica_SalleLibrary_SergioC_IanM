@@ -1,4 +1,4 @@
-package com.example.cifu.practica_sallelibrary_sergioc_ianm;
+package com.example.cifu.practica_sallelibrary_sergioc_ianm.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -13,6 +13,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.BookModel;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.UserModel;
 import com.example.custombookdescription.CustomBookDescription;

@@ -12,8 +12,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import com.example.cifu.practica_sallelibrary_sergioc_ianm.BooksListActivity;
-import com.example.cifu.practica_sallelibrary_sergioc_ianm.MainActivity;
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.activities.BooksListActivity;
+import com.example.cifu.practica_sallelibrary_sergioc_ianm.activities.MainActivity;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.R;
 import com.example.cifu.practica_sallelibrary_sergioc_ianm.models.UserModel;
 import com.google.gson.Gson;
